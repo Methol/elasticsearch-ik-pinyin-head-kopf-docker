@@ -1,7 +1,5 @@
 FROM openjdk:8-jre
 
-RUN apt-get update && apt-get install wget
-
 # grab gosu for easy step-down from root
 ENV GOSU_VERSION 1.7
 RUN set -x \
@@ -67,12 +65,12 @@ RUN apt-get update && apt-get install zip
 
 RUN mkdir -p /usr/share/elasticsearch/plugins/ik
 
-RUN cd /usr/share/elasticsearch/plugins/ik &&
-    wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v$IK_VERSION/elasticsearch-analysis-ik-$IK_VERSION.zip &&
+RUN cd /usr/share/elasticsearch/plugins/ik && \
+    wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v$IK_VERSION/elasticsearch-analysis-ik-$IK_VERSION.zip && \
     unzip elasticsearch-analysis-ik-$IK_VERSION.zip
 
 # 安装 head
-RUN cd /usr/share/elasticsearch/bin &&
+RUN cd /usr/share/elasticsearch/bin && \
     plugin -install mobz/elasticsearch-head
 
 # 安装 kopf
