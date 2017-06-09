@@ -1,5 +1,7 @@
 FROM openjdk:8-jre
 
+RUN apt-get update && apt-get install wget
+
 # grab gosu for easy step-down from root
 ENV GOSU_VERSION 1.7
 RUN set -x \
