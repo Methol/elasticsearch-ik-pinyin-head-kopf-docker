@@ -69,10 +69,6 @@ RUN cd /usr/share/elasticsearch/plugins/ik && \
     wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v$IK_VERSION/elasticsearch-analysis-ik-$IK_VERSION.zip && \
     unzip elasticsearch-analysis-ik-$IK_VERSION.zip
 
-# 安装 head
-RUN cd /usr/share/elasticsearch/bin && \
-    plugin -install mobz/elasticsearch-head
-
 # 安装 kopf
 ENV KOPF_VERSION 2.1.2
 RUN curl -s -L "https://github.com/lmenezes/elasticsearch-kopf/archive/v${KOPF_VERSION}.tar.gz" | \
