@@ -57,7 +57,7 @@ RUN set -ex \
 
 COPY config ./config
 COPY docker-entrypoint.sh /
-
+RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 
 # 安装 ik 5.4.1 版本
 ENV IK_VERSION 5.4.1
